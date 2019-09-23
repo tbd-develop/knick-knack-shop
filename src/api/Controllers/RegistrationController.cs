@@ -23,7 +23,7 @@ namespace api.Controllers
             {
                 Name = model.Name,
                 PricePaid = model.PricePaid,
-                Evaluation = model.Evaluation
+                Valuation = model.Valuation
             });
         }
     }

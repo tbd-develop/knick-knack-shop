@@ -33,9 +33,7 @@ namespace api
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddDbContext<ApplicationContext>(cfg =>
-                cfg.UseSqlServer(
-                    @"Server=(localdb)\mssqllocaldb;Database=EFProviders.InMemory;Trusted_Connection=True;ConnectRetryCount=0"));
+            services.AddDbContext<ApplicationContext>(cfg => cfg.UseInMemoryDatabase("Bob"));
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using persistence.Contracts;
 
 namespace persistence.Repositories
@@ -31,6 +32,11 @@ namespace persistence.Repositories
             _context.Set<T>().Update(@object);
 
             _context.SaveChanges();
+        }
+
+        public IQueryable<T> Get()
+        {
+            return _context.Set<T>();
         }
     }
 }

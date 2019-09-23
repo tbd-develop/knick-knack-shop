@@ -8,10 +8,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using persistence;
+using persistence.Contracts;
+using persistence.DataContext;
 
 namespace api
 {
@@ -28,6 +32,12 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddDbContext<ApplicationContext>(cfg =>
+                cfg.UseSqlServer(
+                    @"Server=(localdb)\mssqllocaldb;Database=EFProviders.InMemory;Trusted_Connection=True;ConnectRetryCount=0"));
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddMediatR(typeof(RegisterNewKnickKnack).Assembly);
         }

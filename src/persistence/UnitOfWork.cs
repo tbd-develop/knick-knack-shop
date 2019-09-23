@@ -9,9 +9,9 @@ namespace persistence
     {
         public UnitOfWork(ApplicationContext context)
         {
-            KnickKnacks = new Repository<KnickKnack>(context);
+            KnickKnacks = new KnickKnackRepository(context);
         }
 
-        public IRepository<KnickKnack> KnickKnacks { get; }
+        public IKnickKnackRepository KnickKnacks { get; }
     }
 }

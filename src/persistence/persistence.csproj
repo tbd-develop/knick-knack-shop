@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\models\models.csproj" />
+    <ProjectReference Include="..\viewmodels\viewmodels.csproj" />
   </ItemGroup>
 
 </Project>

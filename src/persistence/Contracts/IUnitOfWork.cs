@@ -1,9 +1,10 @@
 ﻿using models;
+using persistence.Repositories;
 
 namespace persistence.Contracts
 {
     public interface IUnitOfWork
     {
-        IRepository<KnickKnack> KnickKnacks { get; }
+        IKnickKnackRepository KnickKnacks { get; }
     }
 }

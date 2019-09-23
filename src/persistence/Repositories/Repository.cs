@@ -34,7 +34,7 @@ namespace persistence.Repositories
             _context.SaveChanges();
         }
 
-        public IQueryable<T> Get()
+        protected IQueryable<T> Get()
         {
             return _context.Set<T>();
         }
